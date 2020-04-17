@@ -1,14 +1,19 @@
 <template>
   <div id="app">
 
-    <h1>Activity Video Collection</h1>
-
 <div id="container">
+    
+    <div id="top">
+      <div id="title">
+         <h1>Activity Video Collection</h1>
+      </div>
+
     <div id="add-activity">
       <AddActivity v-on:new-activity="newActivity"></AddActivity>
     </div>
+</div>
 
-    <div id="activity-browser">
+    <div id="main">
       <ActivityBrowser v-bind:activities="activities" v-on:rating-changed="ratingChanged"></ActivityBrowser>
     </div>
 </div>
@@ -44,11 +49,8 @@ export default {
     },
     ratingChanged(activity) {
       // find by id and replace in array 
-      console.log('log', activity.youtubeId)
       this.activities.forEach( a => {
-
-      console.log('loop', a.youtubeId)
-        if (a.youtubeId == activity.youtubeId) {
+      if (a.youtubeId == activity.youtubeId) {
           a.like = activity.like 
         }
       })
@@ -70,12 +72,25 @@ export default {
 
 #container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /* flex-wrap: wrap;
+  justify-content: center; */
+}
+
+#top {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#title {
+  flex-basis: 40%;
 }
 
 #add-activity {
-  
+  flex-basis: 60%;
 }
 
 #activity-browser {

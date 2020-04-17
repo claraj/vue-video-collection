@@ -1,12 +1,18 @@
 <template>
-  <div>
+  <div id="search-form">
 
     <h2>Search</h2>
+
+    <div class="form-input">
       <label for="search">Search query </label>
-    <input id="search" v-model="query" v-on:input="search">
-<br>
+      <input id="search" v-model="query" v-on:input="search">
+    </div>
+
+    <div class="form-input">
     <label for="only-like">Only show liked videos </label>
     <input id="only-like" type="checkbox" v-model="onlyLike" v-on:change="search">
+  </div>
+  
   </div>
 </template>
 
@@ -27,7 +33,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+#search-form {
+  /* border: 1px darkgreen solid;
+  border-radius: 5px; */
+  padding: 10px;
+  background: rgb(165, 193, 165);
+  
+}
+
+.form-input {
+  margin: 5px 10px;
+}
 
 
 </style>

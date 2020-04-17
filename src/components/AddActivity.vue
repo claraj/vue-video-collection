@@ -7,7 +7,7 @@
     <label for="title">Title </label>
     <input id="title" v-model="title">
 <br>
-    <label for="youtube-url">Youtube URL</label>
+    <label for="youtube-url">YouTube URL</label>
     <input id="youtube-irl" v-model="url">
 <br>
   <button v-on:click="add">Add</button>
@@ -61,8 +61,14 @@ export default {
 }
 
 input {
-  width: 70%;
-  margin: 5px 20px;
+  width: 60%;
+  margin: 5px 10px;
+}
+
+
+label {
+  width: 30%;
+  margin: 5px 10px;
 }
 
 #add {

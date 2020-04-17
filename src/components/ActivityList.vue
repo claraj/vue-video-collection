@@ -1,7 +1,8 @@
 <template>
   <div>
+    <h2>Video List</h2>
 
-<p id="count">{{ numberOfItems }} Activity Item(s)</p>
+<p id="count">{{ numberOfItems }} Activity Video(s)</p>
 
 <ActivityItem v-for="activity in activities" 
 v-bind:activity="activity"
@@ -42,7 +43,7 @@ export default {
 
 #count {
   border: 1px darkgreen solid;
-  border-radius: 30px;
+  border-radius: 5px;
   display: inline-block;
   padding: 5px 30px
 }

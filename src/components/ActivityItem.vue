@@ -3,7 +3,7 @@
 
 <h3>{{activity.title}}</h3>
 <!-- video -->
-<iframe width="420" height="315" v-bind:src="youtubeEmbedUrl">
+<iframe class="video-frame" v-bind:src="youtubeEmbedUrl">
 
 </iframe>
 
@@ -66,5 +66,11 @@ export default {
 
 #like-icon {
   margin-left: 10px;
+}
+
+.video-frame {
+height: 315px;
+width: 420px;
+margin: auto;
 }
 </style>
