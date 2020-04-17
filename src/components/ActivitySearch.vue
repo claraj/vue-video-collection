@@ -9,9 +9,9 @@
     </div>
 
     <div class="form-input">
-    <label for="only-like">Only show liked videos </label>
-    <input id="only-like" type="checkbox" v-model="onlyLike" v-on:change="search">
-  </div>
+      <label for="only-like">Only show liked videos </label>
+      <input id="only-like" type="checkbox" v-model="onlyLike" v-on:change="search">
+    </div>
   
   </div>
 </template>
@@ -20,10 +20,12 @@
 
 export default {
   name: 'ActivitySearch',
-  data() {return {
-    query: '',
-    onlyLike: false
-  }},
+  data() {
+    return {
+      query: '',
+      onlyLike: false
+    }
+  },
   methods: {
       search() {
           let searchOptions = { query: this.query, onlyLike: this.onlyLike }
@@ -36,11 +38,8 @@ export default {
 <style scoped>
 
 #search-form {
-  /* border: 1px darkgreen solid;
-  border-radius: 5px; */
   padding: 10px;
   background: rgb(165, 193, 165);
-  
 }
 
 .form-input {

@@ -31,13 +31,15 @@ export default {
     AddActivity,
     ActivityBrowser
   },
-  data() {return  {
-    activities: [
-      {'title': 'spork', youtubeId: '12345', },
-      {'title': 'goo', youtubeId: '12346', like:true},
-      {'title': 'boop', youtubeId: '12347'}
-    ]
-  }},
+  data() {
+    return  {
+      activities: [
+        {'title': 'Solve a rubik cube', youtubeId: 'R-R0KrXvWbc', },
+        {'title': 'Make pancakes', youtubeId: 'FLd00Bx4tOk', like:true},
+        {'title': 'Do a push up', youtubeId: 'ABbVpmubIGQ'}
+      ]
+    }
+  },
   methods: {
     newActivity(activity) {
       // no duplicates
@@ -48,7 +50,7 @@ export default {
       }
     },
     ratingChanged(activity) {
-      // find by id and replace in array 
+      // find by id and replace like value  
       this.activities.forEach( a => {
       if (a.youtubeId == activity.youtubeId) {
           a.like = activity.like 
@@ -60,40 +62,40 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  padding-top: 10px;
-  background: rgb(238, 248, 255);
-}
 
-#container {
-  display: flex;
-  flex-direction: column;
-  /* flex-wrap: wrap;
-  justify-content: center; */
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    padding-top: 10px;
+    background: rgb(238, 248, 255);
+  }
 
-#top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+  #container {
+    display: flex;
+    flex-direction: column;
+  }
 
-#title {
-  flex-basis: 40%;
-}
+  #top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 
-#add-activity {
-  flex-basis: 60%;
-}
+  #title {
+    flex-basis: 40%;
+  }
 
-#activity-browser {
-  flex-grow: 1.1;
-}
+  #add-activity {
+    flex-basis: 60%;
+  }
+
+  #activity-browser {
+    flex-grow: 1.1;
+  }
+
 </style>

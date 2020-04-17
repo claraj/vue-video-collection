@@ -2,15 +2,21 @@
   <div id="add">
     
     <h2>Add New Activity</h2>
-    <p class="error" v-show="error" v-for="error in errors" v-bind:key="error"> {{ error }} </p>
+    <p class="error" v-show="error" v-for="error in errors" v-bind:key="error">
+      {{ error }}
+    </p>
 
-    <label for="title">Title </label>
-    <input id="title" v-model="title">
-<br>
-    <label for="youtube-url">YouTube URL</label>
-    <input id="youtube-irl" v-model="url">
-<br>
-  <button v-on:click="add">Add</button>
+    <div>
+      <label for="title">Title </label>
+      <input id="title" v-model="title">
+    </div>
+  
+    <div>
+      <label for="youtube-url">YouTube URL</label>
+      <input id="youtube-irl" v-model="url">
+    </div>
+
+    <button v-on:click="add">Add</button>
  
   </div>
 </template>
@@ -19,14 +25,15 @@
 
 export default {
   name: 'AddActivity',
-  data() { return  {
-    title: '',
-    url: '',
-    errors: ''
-  }},
+  data() { 
+    return  {
+      title: '',
+      url: '',
+      errors: []
+    }
+  },
   methods: {
     add() {
-
       this.errors = []
 
       if (!this.title) {
@@ -52,30 +59,31 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
 
-.error {
-  color: rgb(114, 9, 9);
-}
+  .error {
+    color: rgb(114, 9, 9);
+  }
 
-input {
-  width: 60%;
-  margin: 5px 10px;
-}
+  input {
+    width: 60%;
+    margin: 5px 10px;
+  }
 
 
-label {
-  width: 30%;
-  margin: 5px 10px;
-}
+  label {
+    width: 30%;
+    margin: 5px 10px;
+  }
 
-#add {
-  margin: 20px;
-  padding: 5px;
-  background: rgb(231, 211, 163);
-  padding-bottom: 40px;
-}
+  #add {
+    margin: 20px;
+    padding: 5px;
+    background: rgb(231, 211, 163);
+    padding-bottom: 40px;
+  }
 
 </style>

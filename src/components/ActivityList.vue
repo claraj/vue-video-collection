@@ -2,13 +2,13 @@
   <div>
     <h2>Video List</h2>
 
-<p id="count">{{ numberOfItems }} Activity Video(s)</p>
+    <p id="count">{{ numberOfItems }} Activity Video(s)</p>
 
-<ActivityItem v-for="activity in activities" 
-v-bind:activity="activity"
-v-bind:key="activity.videoId"
-v-on:rating-changed="ratingChanged"
-></ActivityItem>
+    <ActivityItem v-for="activity in activities" 
+      v-bind:activity="activity"
+      v-bind:key="activity.videoId"
+      v-on:rating-changed="ratingChanged">
+    </ActivityItem>
     
   </div>
 </template>
@@ -17,11 +17,10 @@ v-on:rating-changed="ratingChanged"
 
 import ActivityItem from '@/components/ActivityItem.vue'
 
-
 export default {
   name: 'ActivityList',
   components: {
-      ActivityItem
+    ActivityItem
   },
   props: {
     activities: Array
@@ -37,6 +36,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
@@ -47,6 +47,5 @@ export default {
   display: inline-block;
   padding: 5px 30px
 }
-
 
 </style>

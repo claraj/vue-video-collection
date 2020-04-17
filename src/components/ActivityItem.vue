@@ -1,31 +1,28 @@
 <template>
   <div>
 
-<h3>{{activity.title}}</h3>
-<!-- video -->
-<iframe class="video-frame" v-bind:src="youtubeEmbedUrl">
+    <h3>{{activity.title}}</h3>
+    
+    <iframe class="video-frame" v-bind:src="youtubeEmbedUrl">
+    </iframe>
 
-</iframe>
+    <div><a v-bind:href="youtubeWatchUrl">Watch at YouTube</a></div>
 
-<div><a v-bind:href="youtubeWatchUrl">Watch at YouTube</a></div>
-<!--  -->
-    <!-- like/dislike -->
     <div id="opinion">
-    <label for="like"> Do you like?</label>
-<input id="like" type="checkbox" v-model="activity.like" v-on:change="ratingChanged">
+      <label for="like"> Do you like?</label>
+      <input id="like" type="checkbox" v-model="activity.like" v-on:change="ratingChanged">
 
-<div id="like-icon"> 
-<img v-if="activity.like" src="@/assets/like.png">
-<img v-if="activity.like == false" src="@/assets/dislike.png">
-<img v-if="activity.like == undefined" src="@/assets/no_rating.png">
-   
-</div> </div>
+      <div id="like-icon"> 
+        <img v-if="activity.like" src="@/assets/like.png">
+        <img v-if="activity.like == false" src="@/assets/dislike.png">
+        <img v-if="activity.like == undefined" src="@/assets/no_rating.png">    
+      </div> 
+    </div>
 
   </div>
 </template>
 
 <script>
-
 
 export default {
   name: 'ActivityItem',
@@ -38,22 +35,15 @@ export default {
       }
   },
   computed: {
-      youtubeEmbedUrl() {
-
-          // "https://www.youtube.com/embed/tgbNymZ7vqY">
-            // https://www.youtube.com/watch?v=fvlnJpt9FDU
-
-          return `https://www.youtube.com/embed/${this.activity.youtubeId}`
-      },
-            youtubeWatchUrl() {
-
-          // "https://www.youtube.com/embed/tgbNymZ7vqY"
-            // https://www.youtube.com/watch?v=fvlnJpt9FDU
-
-          return `https://www.youtube.com/watch?v=${this.activity.youtubeId}`
-      }
+    youtubeEmbedUrl() {
+      return `https://www.youtube.com/embed/${this.activity.youtubeId}`
+    },
+    youtubeWatchUrl() {
+      return `https://www.youtube.com/watch?v=${this.activity.youtubeId}`
+    }
   }
 }
+
 </script>
 
 <style scoped>
@@ -69,8 +59,8 @@ export default {
 }
 
 .video-frame {
-height: 315px;
-width: 420px;
-margin: auto;
+  height: 315px;
+  width: 420px;
+  margin: auto;
 }
 </style>
