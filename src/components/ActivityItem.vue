@@ -9,7 +9,9 @@
     <div><a v-bind:href="youtubeWatchUrl">Watch at YouTube</a></div>
 
     <div id="opinion">
-      <label for="like"> Do you like?</label>
+      
+      <label for="like">What's your rating? Check for like</label>
+      
       <input id="like" type="checkbox" v-model="activity.like" v-on:change="ratingChanged">
 
       <div id="like-icon"> 
