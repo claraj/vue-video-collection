@@ -6,7 +6,7 @@
 
     <ActivityItem v-for="activity in activities" 
       v-bind:activity="activity"
-      v-bind:key="activity.videoId"
+      v-bind:key="activity.youtubeId"
       v-on:rating-changed="ratingChanged">
     </ActivityItem>
     
