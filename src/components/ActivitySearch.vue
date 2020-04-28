@@ -13,6 +13,10 @@
       <input id="only-like" type="checkbox" v-model="onlyLike" v-on:change="search">
     </div>
   
+    <div class="form-button">
+      <button v-on:click="reset">Reset search</button>
+    </div>
+  
   </div>
 </template>
 
@@ -30,6 +34,11 @@ export default {
       search() {
           let searchOptions = { query: this.query, onlyLike: this.onlyLike }
           this.$emit('search-updated', searchOptions)
+      },
+      reset() {
+          this.query = ''
+          this.onlyLike = false
+          this.$emit('search-updated')  // no search options 
       }
   }
 }
@@ -45,6 +54,5 @@ export default {
 .form-input {
   margin: 5px 10px;
 }
-
 
 </style>

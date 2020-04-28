@@ -2,7 +2,7 @@
   <div>
     <h2>Video List</h2>
 
-    <p id="count">{{ numberOfItems }} Activity Video(s)</p>
+    <p id="count">{{ numberOfActivities }} Activity Video(s)</p>
 
     <ActivityItem v-for="activity in activities" 
       v-bind:activity="activity"
@@ -31,7 +31,7 @@ export default {
       }
   },
   computed: {
-    numberOfItems() {
+    numberOfActivities() {
       return this.activities.length
     }
   }

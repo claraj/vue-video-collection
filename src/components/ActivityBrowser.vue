@@ -37,21 +37,25 @@ export default {
   },
   methods: {
     search(searchOptions) {
+
       this.searchOptions = searchOptions
       let filteredActivities = this.activities
 
-      if (searchOptions.query) {
-        filteredActivities = this.activities.filter( a => {
-            return a.title.toLowerCase().includes(searchOptions.query.toLowerCase())
-        })
-      }
+      if (searchOptions) {
+      
+        if (searchOptions.query) {
+          filteredActivities = this.activities.filter( a => {
+              return a.title.toLowerCase().includes(searchOptions.query.toLowerCase())
+          })
+        }
 
-      if (searchOptions.onlyLike) {
-        filteredActivities = filteredActivities.filter( a => {
-            return a.like
-        })
+        if (searchOptions.onlyLike) {
+          filteredActivities = filteredActivities.filter( a => {
+              return a.like
+          })
+        }
       }
-
+      
       this.displayActivities = filteredActivities
 
     },

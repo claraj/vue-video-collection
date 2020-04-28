@@ -40,22 +40,27 @@ export default {
         this.errors.push('Enter a title')
       }
 
-      let videoId = this.url.split('?v=')[1]   // hacky
+      // Example video URL is https://www.youtube.com/watch?v=aAxGTnVNJiE
+      // Notice the ID at the end of the URL. This uniquely identifes a video
+      // at YouTube, so this is what we'll store 
+
+      // TODO check that the URL provided is a valid one 
+      let videoId = this.url.split('?v=')[1]   
 
       if (!this.url) {
-        this.errors.push('Enter a URL')
+        this.errors.push('Enter a video URL')
       }
       
-      if (!videoId) {
+      if (this.url && !videoId) {
         this.errors.push("Please check video URL")
       }
 
       if (this.errors.length === 0) {
-      let activity  = { title: this.title, youtubeId: videoId}
-        this.$emit('new-activity', activity)
-        this.title = ''
-        this.url = ''
-      } 
+        let activity = { title: this.title, youtubeId: videoId }
+          this.$emit('new-activity', activity)
+          this.title = ''
+          this.url = ''
+        } 
     }
   }
 }
@@ -72,7 +77,6 @@ export default {
     width: 60%;
     margin: 5px 10px;
   }
-
 
   label {
     width: 30%;
