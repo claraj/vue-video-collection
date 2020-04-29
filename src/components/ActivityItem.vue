@@ -12,12 +12,12 @@
       
       <label for="like">What's your rating? Check for like</label>
       
-      <input id="like" type="checkbox" v-model="activity.like" v-on:change="ratingChanged">
+      <input id="like" type="checkbox" v-model="activityItem.like" v-on:change="ratingChanged">
 
       <div id="like-icon"> 
         <img v-if="activity.like" src="@/assets/like.png">
-        <img v-if="activity.like == false" src="@/assets/dislike.png">
-        <img v-if="activity.like == undefined" src="@/assets/no_rating.png">    
+        <img v-else-if="activity.like == false" src="@/assets/dislike.png">
+        <img v-else src="@/assets/no_rating.png">    
       </div> 
     </div>
 
@@ -33,10 +33,16 @@ export default {
   },
   methods: {
       ratingChanged() {
-          this.$emit('rating-changed', this.activity)
+          this.$emit('rating-changed', this.activityItem)
       }
   },
   computed: {
+    activityItem() {
+      /* A copy of the activity object that belongs to this component. It's 
+       not recommended to modify a prop, since that affect the data in the 
+       parent component. */ 
+      return this.activity
+    },
     youtubeEmbedUrl() {
       return `https://www.youtube.com/embed/${this.activity.youtubeId}`
     },
