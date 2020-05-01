@@ -31,23 +31,25 @@ export default {
   props: {
     activity: Object
   },
+  data() {
+    return {
+      /* A copy of the activity object that belongs to this component. It's 
+       not recommended to modify a prop, since that affect the data in the 
+       parent component. */ 
+      activityItem: this.activity
+    }
+  },
   methods: {
       ratingChanged() {
           this.$emit('rating-changed', this.activityItem)
       }
   },
   computed: {
-    activityItem() {
-      /* A copy of the activity object that belongs to this component. It's 
-       not recommended to modify a prop, since that affect the data in the 
-       parent component. */ 
-      return this.activity
-    },
     youtubeEmbedUrl() {
-      return `https://www.youtube.com/embed/${this.activity.youtubeId}`
+      return `https://www.youtube.com/embed/${this.activityItem.youtubeId}`
     },
     youtubeWatchUrl() {
-      return `https://www.youtube.com/watch?v=${this.activity.youtubeId}`
+      return `https://www.youtube.com/watch?v=${this.activityItem.youtubeId}`
     }
   }
 }
